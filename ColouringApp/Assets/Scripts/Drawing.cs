@@ -10,6 +10,7 @@ public class Drawing : MonoBehaviour
     public InputActionReference drawReference = null;
     public GameObject marker;
     public GameObject cube;
+    public GameObject tip;
     
     private void Awake()
     {
@@ -23,8 +24,10 @@ public class Drawing : MonoBehaviour
 
     private void Draw(InputAction.CallbackContext context)
     {
-        marker.GetComponent<WBMarker>().enabled = !marker.GetComponent<WBMarker>().enabled;
+        //marker.GetComponent<WBMarker>().enabled = !marker.GetComponent<WBMarker>().enabled;
         bool isActive = !cube.activeSelf;
         cube.SetActive(isActive);
+        bool isActiveTip = !tip.activeSelf;
+        tip.SetActive(isActiveTip);
     }
 }
