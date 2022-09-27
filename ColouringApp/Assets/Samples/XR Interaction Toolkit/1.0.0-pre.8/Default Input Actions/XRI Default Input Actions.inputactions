@@ -903,7 +903,7 @@
             "id": "87fa9236-a12b-470d-a654-4fbe594cd6a8",
             "actions": [
                 {
-                    "name": "Drawing",
+                    "name": "Draw",
                     "type": "Button",
                     "id": "fd39f896-aeb8-423a-9d70-ab18513e4bcd",
                     "expectedControlType": "Button",
@@ -914,45 +914,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "5d820349-3bb5-4a51-a80b-691b3b5cf278",
-                    "path": "<XRController>{LeftHand}/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drawing",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "bc079693-6432-4f5e-8fb9-78f5d680da0a",
+                    "id": "c6f2b475-571d-4115-a34d-5f5168dce76c",
                     "path": "<PXR_Controller>/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drawing",
+                    "action": "Draw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "deb430fc-2071-47f9-84b3-bff12bef1860",
-                    "path": "<XRController>{RightHand}/triggerPressed",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Drawing",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c6f2b475-571d-4115-a34d-5f5168dce76c",
+                    "id": "2a37da9a-07a1-4fb1-b98c-7d0d4e101e32",
                     "path": "<XRController>{LeftHand}/triggerButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drawing",
+                    "action": "Draw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
