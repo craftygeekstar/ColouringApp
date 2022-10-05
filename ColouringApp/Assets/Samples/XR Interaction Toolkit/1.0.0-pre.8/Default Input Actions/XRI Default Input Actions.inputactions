@@ -909,6 +909,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "DrawLine",
+                    "type": "Value",
+                    "id": "52cbaaaf-86d4-40ff-ab6b-2c5315030db7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "InstantiateLine",
+                    "type": "Button",
+                    "id": "ab23d85b-1b13-4fcf-b3e6-79ad1f56490d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -931,6 +947,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Draw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67c9c2eb-2648-4211-b34d-4d85b9e49ffb",
+                    "path": "<PXR_Controller>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DrawLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9777ac12-095a-4ff6-aaa4-f360d5dbc3b9",
+                    "path": "<PXR_Controller>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InstantiateLine",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -22,7 +22,9 @@ public class Brush : MonoBehaviour
     private BrushStroke _activeBrushStroke;
     public InputDeviceCharacteristics controllerCharacteristics;
 
-    public GameObject test;
+    public GameObject cube;
+
+    // GameObject test;
 
     private InputDevice targetDevice;
 
@@ -57,8 +59,9 @@ public class Brush : MonoBehaviour
         }
 
         // If the trigger is pressed and we haven't created a new brush stroke to draw, create one!
-        if (triggerPressed && _activeBrushStroke == null)
+        if (triggerPressed) // && _activeBrushStroke == null)
         {
+            cube.SetActive(true);
             // Instantiate a copy of the Brush Stroke prefab.
             GameObject brushStrokeGameObject = Instantiate(_brushStrokePrefab);
 

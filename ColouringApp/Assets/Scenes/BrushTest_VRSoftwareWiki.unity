@@ -377,6 +377,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436987766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436987768}
+  - component: {fileID: 436987767}
+  m_Layer: 0
+  m_Name: Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &436987767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436987766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a631ac6c9749fb4bb6989d78e698b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  primaryButtonPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1868060885}
+        m_TargetAssemblyTypeName: PrimaryButtonWatcher, Assembly-CSharp
+        m_MethodName: onPrimaryButtonEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &436987768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436987766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33040196, y: 0.3663149, z: 0.26181644}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588045717
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,7 +971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1467367351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,8 +986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _brushStrokePrefab: {fileID: 52455169820443202, guid: e694c4de58d89374393dbb098b889d03, type: 3}
   _hand: 0
-  controllerCharacteristics: 0
-  test: {fileID: 0}
+  controllerCharacteristics: 64
+  cube: {fileID: 1868060879}
 --- !u!4 &1467367352
 Transform:
   m_ObjectHideFlags: 0
@@ -1486,6 +1544,7 @@ GameObject:
   - component: {fileID: 1868060883}
   - component: {fileID: 1868060882}
   - component: {fileID: 1868060881}
+  - component: {fileID: 1868060885}
   - component: {fileID: 1868060880}
   m_Layer: 0
   m_Name: Cube
@@ -1493,7 +1552,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1868060880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,10 +1562,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1868060879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9d3fbe5651ee94d89f3a1735f517ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c28a834ec832b642a29add3df225433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawReference: {fileID: 7569500249325604605, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  colorReference: {fileID: -1802683206335681075, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  isDrawing: 0
+  constMaterial: {fileID: 2100000, guid: 8fd74bf19ef3ea040a10eb154eba49ed, type: 2}
+  lineWidth: 0.2
 --- !u!65 &1868060881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1539,7 +1601,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3fc2a75eb1cff034d93c1f2984b28f0e, type: 2}
+  - {fileID: 2100000, guid: 6574e4de8cbde994ba45e8b9fc51bd8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1577,12 +1639,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868060879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.88, y: -0.04, z: 2.93}
+  m_LocalPosition: {x: -2.88, y: -0.04, z: 2.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868060885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868060879}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818ac32e0e97e414e92fdd19dd448c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  watcher: {fileID: 436987767}
+  IsPressed: 0
+  rotationAngle: {x: 45, y: 45, z: 45}
+  rotationDuration: 0.25
 --- !u!1 &1881329183
 GameObject:
   m_ObjectHideFlags: 0
