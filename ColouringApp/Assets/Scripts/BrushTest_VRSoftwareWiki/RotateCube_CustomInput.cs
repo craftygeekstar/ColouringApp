@@ -2,33 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class RotateCube_CustomInput : MonoBehaviour
 {
     public InputActionReference colorReference = null;
     private MeshRenderer meshRenderer = null;
 
-    public bool isDrawing = false;
-    List<Vector3> constPoints;
-    GameObject newConst;
-    LineRenderer drawConst;
-    public Material constMaterial;
+    
+    GameObject newLine;
+    LineRenderer line;
     public float lineWidth;
+    public Material[] mats; 
+    public GameObject penTip;
+
+    private List<Transform> points = new List<Transform>();
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+
+        //Make a new line and set it's position to the tip
+        newLine = new GameObject();
+        newLine.transform.position = penTip.transform.position;
+        
+        line = newLine.AddComponent<LineRenderer>();
+        line.material = mats[0];
+        
     }
 
     private void Update()
     {
-        //Change colour of the cube if the trigger is pressed. When trigger pressed, value changes from 0 to 1.
+        line.startWidth = lineWidth;
+        line.endWidth = lineWidth;
+
+        
         float value = colorReference.action.ReadValue<float>();
         UpdateColor(value);
 
-        //now trying for drawing a line.
-        float drawValue = colorReference.action.ReadValue<float>();
-        DrawLine();
+        if (value == 0)
+        {
+            points.Clear();
+            //Destroy(arrayPoints);
+            return;
+        }
+        
+        int drawValue = colorReference.action.ReadValue<int>();
+        DrawLine(drawValue);
+
     }
 
     private void UpdateColor(float value)
@@ -36,38 +57,21 @@ public class RotateCube_CustomInput : MonoBehaviour
         meshRenderer.material.color = new Color(value, value, value);
     }
 
-    private void DrawLine()
+    private void DrawLine(int drawValue)
     {
-        if (isDrawing)
-        {
-            //Continue to draw the constellation when the mouse button is down.
-            Debug.DrawRay(Camera.main.ScreenToWorldPoint(Input.mousePosition), GetMousePosition(), Color.red);
-            constPoints.Add(GetMousePosition());
+        line.material = mats[drawValue];
+        points.Add(penTip.transform);
 
-            drawConst.positionCount = constPoints.Count;
-            drawConst.SetPositions(constPoints.ToArray());
-        }
+        line.positionCount = points.Count;
+        this.points = points;
 
-        else
+        Transform[] arrayPoints = points.ToArray();
+    
+        for (int i = 0; i < arrayPoints.Length; i++)
         {
-            constPoints.Clear();
-            newConst = new GameObject();
-            drawConst = newConst.AddComponent<LineRenderer>();
-            //Set the parameters for how the line will look.
-            drawConst.material = new Material(Shader.Find("Sprites/Default"));
-            drawConst.startColor = Color.yellow;
-            drawConst.endColor = Color.white;
-            drawConst.startWidth = lineWidth;
-            drawConst.endWidth = lineWidth;
-            
-            isDrawing = true;
+            line.SetPositions(i, arrayPoints[i].position);
         }
     }
 
-    Vector3 GetMousePosition()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        return ray.origin + ray.direction *10;
-    }
 
 }

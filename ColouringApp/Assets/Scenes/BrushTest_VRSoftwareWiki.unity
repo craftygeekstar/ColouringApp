@@ -349,7 +349,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &270206177
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1388224322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388224321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05686541fa06ea04fb5319f8d932de7f, type: 3}
   m_Name: 
@@ -1018,7 +1018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1544163165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,9 +1566,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorReference: {fileID: -1802683206335681075, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  isDrawing: 0
-  constMaterial: {fileID: 2100000, guid: 8fd74bf19ef3ea040a10eb154eba49ed, type: 2}
   lineWidth: 0.2
+  mats:
+  - {fileID: 2100000, guid: 3fc2a75eb1cff034d93c1f2984b28f0e, type: 2}
+  - {fileID: 2100000, guid: 8fd74bf19ef3ea040a10eb154eba49ed, type: 2}
+  penTip: {fileID: 2014009321}
 --- !u!65 &1868060881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1731,8 +1733,6 @@ GameObject:
   - component: {fileID: 2014009328}
   - component: {fileID: 2014009327}
   - component: {fileID: 2014009326}
-  - component: {fileID: 2014009325}
-  - component: {fileID: 2014009324}
   - component: {fileID: 2014009323}
   m_Layer: 0
   m_Name: Tip
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014009321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d810ab9826e92464c83df6766ab4c90f, type: 3}
   m_Name: 
@@ -1770,33 +1770,6 @@ MonoBehaviour:
   lineMaterial: {fileID: 2100000, guid: 0d1eec68e65242e40a96838210968dac, type: 2}
   lineWidth: 0.1
   tip: {fileID: 2014009321}
---- !u!114 &2014009324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014009321}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c1d8b627a3e8bb4dabb91e32fb4bd62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tip: {fileID: 2014009322}
-  penSize: 15
---- !u!114 &2014009325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014009321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e9d3fbe5651ee94d89f3a1735f517ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawReference: {fileID: 7569500249325604605, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!65 &2014009326
 BoxCollider:
   m_ObjectHideFlags: 0
