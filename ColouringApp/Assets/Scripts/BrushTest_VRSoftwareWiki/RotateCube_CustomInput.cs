@@ -27,6 +27,7 @@ public class RotateCube_CustomInput : MonoBehaviour
         newLine.transform.position = penTip.transform.position;
         
         line = newLine.AddComponent<LineRenderer>();
+       // line.useWorldSpace = true;
         line.material = mats[0];
         
     }
@@ -60,17 +61,21 @@ public class RotateCube_CustomInput : MonoBehaviour
     private void DrawLine(int drawValue)
     {
         line.material = mats[drawValue];
-        points.Add(penTip.transform);
+        // points.Add(penTip.transform);
 
-        line.positionCount = points.Count;
-        this.points = points;
+        // line.positionCount = points.Count;
+        // this.points = points;
 
-        Transform[] arrayPoints = points.ToArray();
+        // Transform[] arrayPoints = points.ToArray();
     
-        for (int i = 0; i < arrayPoints.Length; i++)
-        {
-            line.SetPositions(i, arrayPoints[i].position);
-        }
+        // for (int i = 0; i < arrayPoints.Length; i++)
+        // {
+        //     line.SetPositions(arrayPoints[i].position);
+        // }
+
+        Vector3 tipPos = new Vector3(penTip.transform.position.x, penTip.transform.position.y, penTip.transform.position.z);
+        line.positionCount++;
+        line.SetPosition(line.positionCount - 1, tipPos);
     }
 
 
