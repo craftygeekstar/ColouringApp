@@ -16,38 +16,31 @@ public class RotateCube_CustomInput : MonoBehaviour
     public Material[] mats; 
     public GameObject penTip;
 
-    private List<Transform> points = new List<Transform>();
+    private List<Vector3> points = new List<Vector3>();
+
+    //New
+    private RaycastHit hit;
+    private float tipHeight;
+
+    [SerializeField]
+    private Transform tip;
 
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-
-        //Make a new line and set it's position to the tip
-        newLine = new GameObject();
-        newLine.transform.position = penTip.transform.position;
-        
-        line = newLine.AddComponent<LineRenderer>();
-       // line.useWorldSpace = true;
-        line.material = mats[0];
-        
     }
 
     private void Update()
-    {
-        line.startWidth = lineWidth;
-        line.endWidth = lineWidth;
-
-        
+    {        
         float value = colorReference.action.ReadValue<float>();
         UpdateColor(value);
 
         if (value == 0)
         {
             points.Clear();
-            //Destroy(arrayPoints);
             return;
         }
-        
+
         int drawValue = colorReference.action.ReadValue<int>();
         DrawLine(drawValue);
 
@@ -60,12 +53,31 @@ public class RotateCube_CustomInput : MonoBehaviour
 
     private void DrawLine(int drawValue)
     {
-        line.material = mats[drawValue];
-        // points.Add(penTip.transform);
+        tipHeight = tip.transform.position.y;
+        
+        if (Physics.Raycast(tip.position, transform.up, out hit, tipHeight))
+        {
+            //Make a new line and set it's position to the tip
+            newLine = new GameObject();
+            line = newLine.AddComponent<LineRenderer>();
+            // newLine.transform.position = hit.transform.position;
+            
+            // line.useWorldSpace = true;
+            //line.material = mats[0];
 
-        // line.positionCount = points.Count;
-        // this.points = points;
+            line.startWidth = lineWidth;
+            line.endWidth = lineWidth;
+            line.material = mats[drawValue];
+            points.Add(penTip.transform.position);
 
+            line.positionCount = points.Count;
+            //this.points = points;
+
+            line.SetPositions(points.ToArray());
+        }
+
+        
+       
         // Transform[] arrayPoints = points.ToArray();
     
         // for (int i = 0; i < arrayPoints.Length; i++)
@@ -73,9 +85,9 @@ public class RotateCube_CustomInput : MonoBehaviour
         //     line.SetPositions(arrayPoints[i].position);
         // }
 
-        Vector3 tipPos = new Vector3(penTip.transform.position.x, penTip.transform.position.y, penTip.transform.position.z);
-        line.positionCount++;
-        line.SetPosition(line.positionCount - 1, tipPos);
+        // Vector3 tipPos = new Vector3(penTip.transform.position.x, penTip.transform.position.y, penTip.transform.position.z);
+        // line.positionCount++;
+        // line.SetPosition(line.positionCount - 1, tipPos);
     }
 
 

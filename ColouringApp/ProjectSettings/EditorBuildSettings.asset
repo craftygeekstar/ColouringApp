@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/BrushTest_VRSoftwareWiki.unity
+    path: Assets/Scenes/LineRenderer.unity
     guid: 9f0b30b6f96700a4f9e731962b44413b
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 8c0fbbda1e208264c8cf59706d1eca00, type: 2}
