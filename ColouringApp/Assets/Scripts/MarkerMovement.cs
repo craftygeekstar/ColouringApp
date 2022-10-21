@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class MarkerMovement : MonoBehaviour
 {
+    /*
+        This script controls the movements of the marker pen to follow the XR controller.
+        The movement is only on the x and y axis.
+        And is limited to the size of the boundin box - which is just over the whiteboard.
+    */
+
+
     //Controller rotation
     public GameObject controller;
     private float rotZ, rotY;
