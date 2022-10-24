@@ -15,5 +15,11 @@ public class WhiteBoard : MonoBehaviour
         ren.material.mainTexture = texture;
     }
 
+    public void ClearWB()
+    {
+        var ren = GetComponent<Renderer>();
+        texture = new Texture2D(width:(int)textureSize.x, height:(int)textureSize.y);
+        ren.material.mainTexture = texture;
+    }
     
 }

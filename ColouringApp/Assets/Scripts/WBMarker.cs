@@ -16,7 +16,7 @@ public class WBMarker : MonoBehaviour
     private WhiteBoard whiteboard;
     private Vector2 touchPos;
 
-    private bool touchedLastFrame;
+    public bool touchedLastFrame;
     private Vector2 lastTouchPos;
     private Quaternion lastTouchRot;
 
@@ -29,8 +29,9 @@ public class WBMarker : MonoBehaviour
         tipHeight = tip.localScale.y;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        colors = Enumerable.Repeat(ren.material.color, penSize * penSize).ToArray();
         Drawing();
     }
 
