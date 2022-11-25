@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: ace0fbc981cd7dc4aaa759c4a0b3188a
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/LineRenderer.unity
-    guid: 9f0b30b6f96700a4f9e731962b44413b
   m_configObjects:
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: 8c0fbbda1e208264c8cf59706d1eca00, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1c9a55707bcdc0e4599a36481761a4ac, type: 2}

@@ -973,6 +973,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Custom_PenPosition",
+            "id": "bb27ebad-236d-4fc4-94d8-f3379bc74f75",
+            "actions": [
+                {
+                    "name": "PenPosition",
+                    "type": "Value",
+                    "id": "76ad826a-b7a1-4078-bca1-b6ed4b071497",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "88d236c3-76f6-417f-a98a-32507421788f",
+                    "path": "<PXR_Controller>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PenPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

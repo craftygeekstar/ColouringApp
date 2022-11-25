@@ -24,10 +24,7 @@ public class Drawing : MonoBehaviour
     private void Draw(InputAction.CallbackContext context)
     {
         //marker.GetComponent<WBMarker>().enabled = !marker.GetComponent<WBMarker>().enabled;
-        // bool isActive = !gameObject.activeSelf;
-        // cube.SetActive(isActive);
-        // bool isActiveTip = !tip.activeSelf;
-        // tip.SetActive(isActiveTip);
+        
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
     }
